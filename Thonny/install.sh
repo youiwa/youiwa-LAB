@@ -41,4 +41,3 @@ pip3 install thonny
 pyenv --version
 python3 -V
 pip3 -V
-thonny -V

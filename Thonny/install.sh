@@ -31,7 +31,7 @@ pyenv install 3.12.3
 pyenv global 3.12.3
 
 # Install pip
-sudo apt install python3-pip
+sudo apt -y install python3-pip
 pip3 install --upgrade pip
 
 # Install Thonny

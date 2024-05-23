@@ -22,7 +22,7 @@ sudo apt -y install nano vim gcc make curl build-essential libssl-dev zlib1g-dev
 # Install pyenv
 curl https://pyenv.run | bash
 cp .bashrc .bashrc.orig
-sed -i '$a \nexport PYENV_ROOT="$HOME/.pyenv"\n[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"\neval "$(pyenv init -)"' ~/.bashrc
+sed -i '$a export PYENV_ROOT="$HOME/.pyenv"\n[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"\neval "$(pyenv init -)"' ~/.bashrc
 source .bashrc
 
 # Python Update

@@ -17,7 +17,11 @@ sudo apt update
 sudo apt -y upgrade
 
 # Install required software
-sudo apt -y install nano vim gcc make curl build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+sudo apt -y install nano vim gcc make curl \ 
+   build-essential libssl-dev zlib1g-dev \ 
+   libbz2-dev libreadline-dev libsqlite3-dev \ 
+   libncursesw5-dev xz-utils tk-dev \ 
+   libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 
 # Install pyenv
 curl https://pyenv.run | bash
@@ -37,7 +41,7 @@ pip3 install --upgrade pip
 # Install Thonny
 pip3 install thonny
 
-# インストールの確認
+# Check Version
 pyenv --version
 python3 -V
 pip3 -V

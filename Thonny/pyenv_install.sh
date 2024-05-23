@@ -1,3 +1,5 @@
+#!/bin/bash　-x
+
 # Install pyenv
 curl https://pyenv.run | bash
 cp .bashrc .bashrc.orig

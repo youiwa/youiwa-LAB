@@ -22,7 +22,7 @@ while true; do
     TXID=$(sudo tcpdump -n -i any -c 1 "udp and src ${CACHE_DNS} and dst port 53" -vv -XX \
         | grep -A1 "0x0000:" \
         | tail -n1 \
-        | awk '{print "0x"$1$2}')
+        | awk '{print $1$2}')
 
     if [ -z "$TXID" ]; then
         echo "[!] TXID取得失敗。再試行します..."

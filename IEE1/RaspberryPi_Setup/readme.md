@@ -96,6 +96,7 @@ wget -N -O web_setup.sh https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs
 chmod +x web_setup.sh
 ./web_setup.sh
 
+# Webサーバのチェック（動作確認）
 wget -N -O web_check.sh https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/web_check.sh
 chmod +x web_check.sh
 ./web_check.sh

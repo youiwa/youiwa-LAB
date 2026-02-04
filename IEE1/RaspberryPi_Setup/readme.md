@@ -90,6 +90,12 @@ chmod +x first_setup.sh
 　- ユーザディレクトリでのPHP有効化
 - セキュリティ対策
 
+```bash
+wget https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/web_check.sh
+chmod +x web_check.sh
+./web_check.sh
+```
+
 ### ユーザディレクトリとPHPの有効化
 
 ## DNSサーバ

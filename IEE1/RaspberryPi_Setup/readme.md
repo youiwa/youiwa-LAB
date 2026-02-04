@@ -71,6 +71,10 @@ WSLを再起動する。
 wsl --shutdown
 ```
 
+## 作業環境の準備
+
+- ソフトウェアのインストール
+  - vim, curl
 
 ## Webサーバ ← web_setup.sh
 

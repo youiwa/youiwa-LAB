@@ -10,7 +10,7 @@ Debian13(Trixie)をWSLでインストール
 
 ```powershell
 wsl --install -d Debian
-※初期設定のユーザー名・パスワードを適宜設定してください
+# 初期設定のユーザー名・パスワードを適宜設定してください
 ```
 
 セットアップした仮想環境内で以下を実行
@@ -24,6 +24,9 @@ sudo sed -i 's/bookworm/trixie/g' /etc/apt/sources.list
 
 sudo apt update
 sudo apt full-upgrade -y
+
+cat /etc/debian_version
+# 「13.x」と表示されれば成功です
 ```
 
 ## Webサーバ

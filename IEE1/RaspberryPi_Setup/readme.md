@@ -45,6 +45,33 @@ wsl --unregister Debian
 # 正確な仮想環境の名前は、wsl -l -vで確認できる
 ```
 
+#### WSLでhostnameを変更する
+
+WSL2のホスト名は、通常のLinuxの手順（hostnameコマンドなど）だけでは再起動時にWindows側の名前へ戻ってしまいます。永続的に変更するには /etc/wsl.conf を使用する。
+
+```bash
+sudo nano /etc/wsl.conf
+
+# 以下3行を追記
+[network]
+hostname = 好きなホスト名
+generateHosts = false
+```
+
+ホスト名の解決を正しく行うため、/etc/hosts の内容も新しい名前に書き換える。
+
+```bash
+sudo nano /etc/hosts
+# 127.0.1.1（または旧ホスト名が書かれた行）を新しいホスト名に変更して保存
+```
+
+WSLを再起動する。
+
+```powershell
+wsl --shutdown
+```
+
+
 ## Webサーバ ← web_setup.sh
 
 - Webサーバのインストール・有効化

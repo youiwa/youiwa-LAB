@@ -100,9 +100,6 @@ wget https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/
 chmod +x web_check.sh
 ./web_check.sh
 ```
-
-### ユーザディレクトリとPHPの有効化
-
 ## DNSサーバ
 
 ## ファイアウォール

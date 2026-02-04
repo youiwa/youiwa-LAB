@@ -74,6 +74,7 @@ wsl --shutdown
 ## 作業環境の準備
 
 ```bash
+sudo apt install wget
 wget -N -O first_setup.sh https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/first_setup.sh
 chmod +x first_setup.sh
 ./first_setup.sh

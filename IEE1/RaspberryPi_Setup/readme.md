@@ -6,7 +6,7 @@
 
 ### WSL版
 
-Debian13(Trixie)をWSLでインストール
+#### Debian13(Trixie)をWSLでインストール
 
 ```powershell
 wsl --install -d Debian
@@ -33,6 +33,16 @@ sudo apt full-upgrade -y
 
 cat /etc/debian_version
 # 「13.x」と表示されれば成功です
+```
+
+#### Debian13(Trixie)をWSLでアンインストール
+
+```powershell
+wsl --unregister 仮想環境名
+# ↓ Debianの場合
+wsl --unregister Debian
+
+# 正確な仮想環境の名前は、wsl -l -vで確認できる
 ```
 
 ## Webサーバ ← web_setup.sh

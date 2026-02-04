@@ -22,7 +22,7 @@ trap 'rc=$?; echo "Error: command \"${BASH_COMMAND}\" failed with exit code ${rc
 # - -N: ローカルに同名ファイルがある場合、リモートの方が新しければ上書きする
 # - -O index.html: ダウンロード先ファイル名を index.html に指定
 # ----------------------------------------
-wget -N -O index.html https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/index.html
+wget -N -O index.html https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/html/index.html
 sudo cp index.html /var/www/html
 
 # ----------------------------------------
@@ -36,7 +36,7 @@ sed -i 's/Server/Server-UserDir/g' $HOME/public_html/index.html
 # ----------------------------------------
 # PHP 動作確認用のファイルをリモートから取得して設置
 # ----------------------------------------
-wget -N -O test.php https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/test.php
+wget -N -O test.php https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/php/test.php
 sudo cp test.php /var/www/html
 sudo cp test.php $HOME/public_html/
 

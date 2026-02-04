@@ -22,6 +22,3 @@ sudo cp test.php $HOME/public_html/
 # PHPの確認
 curl localhost/test.php
 curl localhost/~$USER/test.php
-
-# buff=$(php -v | head -n 1 | awk -F' ' '{print $2}' | cut -d'.' -f1-2)
-# more php$buff.conf

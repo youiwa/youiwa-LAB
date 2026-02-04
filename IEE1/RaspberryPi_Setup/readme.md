@@ -91,6 +91,11 @@ chmod +x first_setup.sh
 - セキュリティ対策
 
 ```bash
+# Webサーバのインストール
+wget https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/web_setup.sh
+chmod +x web_setup.sh
+./web_setup.sh
+
 wget https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/web_check.sh
 chmod +x web_check.sh
 ./web_check.sh

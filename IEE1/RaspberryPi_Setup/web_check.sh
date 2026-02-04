@@ -7,7 +7,7 @@ sudo cp index.html /var/www/html
 curl localhost
 
 sudo cp index.html $HOME/public_html/
-sed -i 's/Server/Server-UserDir/g' ~/public_html/index.html
+sed -i 's/Server/Server-UserDir/g' $HOME/public_html/index.html
 curl localhost/~$USER/
 
 set +x

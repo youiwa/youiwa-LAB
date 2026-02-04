@@ -1,3 +1,7 @@
+#!/usr/bin/bash
+
+set -x
+
 # Update & Upgrade
 sudo apt update -y
 sudo apt upgrade -y
@@ -20,3 +24,8 @@ chmod 711 $HOME
 sudo apt install php -y
 sudo apt install php-fpm
 sudo systemctl restart apache2
+
+sudo apt autoremove
+sudo apt autoclean
+
+set +x

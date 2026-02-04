@@ -22,10 +22,10 @@ chmod 711 $HOME
 
 # PHPのインストール
 sudo apt install php -y
-sudo apt install php-fpm
+# sudo apt install php-fpm
 sudo systemctl restart apache2
 
-sudo apt autoremove
-sudo apt autoclean
+sudo apt autoremove -y
+sudo apt autoclean -y
 
 set +x

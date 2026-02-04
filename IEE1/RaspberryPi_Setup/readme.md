@@ -73,6 +73,12 @@ wsl --shutdown
 
 ## 作業環境の準備
 
+```bash
+wget https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/first_setup.sh
+chmod +x first_setup.sh
+./first_setup.sh
+```
+
 - ソフトウェアのインストール
   - vim, curl
 

@@ -35,7 +35,7 @@ cat /etc/debian_version
 # 「13.x」と表示されれば成功です
 ```
 
-## Webサーバ
+## Webサーバ ← web_setup.sh
 
 - Webサーバのインストール・有効化
 - PHPの有効化

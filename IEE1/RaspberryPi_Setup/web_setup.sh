@@ -1,6 +1,20 @@
 #!/usr/bin/bash
 
+# デバッグ表示を有効にする（実行されるコマンドを標準出力に表示）
 set -x
+
+# -------------------------------
+# エラーハンドリング設定
+# - -e: コマンドが非ゼロ終了ステータスを返したら直ちに終了
+# - -u: 未定義変数の参照をエラーにする
+# - -o pipefail: パイプ内のどれかのコマンドが失敗したら全体を失敗にする
+# - IFS: フィールド分割を安全に設定
+# - ERR トラップ: どのコマンド／行で失敗したかを出力して終了コードを返す
+# -------------------------------
+set -euo pipefail
+IFS=$'\n\t'
+
+trap 'rc=$?; echo "Error: command \"${BASH_COMMAND}\" failed with exit code ${rc} at line ${BASH_LINENO[0]}" >&2; exit ${rc}' ERR
 
 # Update & Upgrade
 sudo apt update -y

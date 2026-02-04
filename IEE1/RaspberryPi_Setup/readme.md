@@ -74,13 +74,13 @@ wsl --shutdown
 ## 作業環境の準備
 
 ```bash
-wget https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/first_setup.sh
+wget -N -O first_setup.sh https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/first_setup.sh
 chmod +x first_setup.sh
 ./first_setup.sh
 ```
 
 - ソフトウェアのインストール
-  - vim, curl
+  - vim, curl, wget
 
 ## Webサーバ ← web_setup.sh
 
@@ -92,11 +92,11 @@ chmod +x first_setup.sh
 
 ```bash
 # Webサーバのインストール
-wget https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/web_setup.sh
+wget -N -O web_setup.sh https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/web_setup.sh
 chmod +x web_setup.sh
 ./web_setup.sh
 
-wget https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/web_check.sh
+wget -N -O web_check.sh https://raw.githubusercontent.com/youiwa/youiwa-LAB/refs/heads/master/IEE1/RaspberryPi_Setup/web_check.sh
 chmod +x web_check.sh
 ./web_check.sh
 ```

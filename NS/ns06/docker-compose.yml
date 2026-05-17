@@ -1,0 +1,45 @@
+services:
+
+  ssh:
+    image: youiwa/ns06-ssh:1.0
+    container_name: ns-ssh
+    hostname: ns-ssh
+    tty: true
+    ports:
+      - "2222:22"
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    networks:
+      ns-net:
+        ipv4_address: 192.168.123.101
+
+  client:
+    image: youiwa/ns06-client:1.0
+    container_name: ns-client
+    hostname: ns-client
+    tty: true
+    depends_on:
+      - ssh
+    networks:
+      ns-net:
+        ipv4_address: 192.168.123.100
+
+  attacker:
+    image: youiwa/ns06-attacker:1.0
+    container_name: ns-attacker
+    hostname: ns-attacker
+    tty: true
+    depends_on:
+      - ssh
+    networks:
+      ns-net:
+        ipv4_address: 192.168.123.66
+
+networks:
+  ns-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.123.0/24
+          gateway: 192.168.123.1

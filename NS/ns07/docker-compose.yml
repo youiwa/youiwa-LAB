@@ -2,7 +2,7 @@ services:
 
   attacker:
     build: ./ns_attacker
-    image: youiwa/ns07-attacker:1.0
+    image: youiwa/network_security:ns07-attacker
     container_name: ns-attacker
     hostname: ns-attacker
     tty: true
@@ -14,7 +14,7 @@ services:
         ipv4_address: 192.168.123.66
 
   proxy:
-    image: youiwa/ns07-proxy:1.0
+    image: youiwa/network_security:ns07-proxy
     container_name: ns-proxy
     hostname: ns-proxy
     ports:
@@ -25,7 +25,7 @@ services:
         ipv4_address: 192.168.123.123
 
   reverse-proxy:
-    image: youiwa/ns07-reverse-proxy:1.0
+    image: youiwa/network_security:ns07-reverse-proxy
     container_name: ns-reverse-proxy
     hostname: ns-reverse-proxy
     ports:
@@ -35,7 +35,7 @@ services:
         ipv4_address: 192.168.123.5
 
   socks-proxy:
-    image: youiwa/ns07-socks-proxy:1.0
+    image: youiwa/network_security:ns07-socks-proxy
     container_name: ns-socks-proxy
     hostname: ns-socks-proxy
     ports:
@@ -45,7 +45,7 @@ services:
         ipv4_address: 192.168.123.10
 
   ns-server:
-    image: youiwa/ns07-server:1.0
+    image: youiwa/network_security:ns07-server
     container_name: ns-server
     hostname: ns-server
     ports:

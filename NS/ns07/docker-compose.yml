@@ -1,0 +1,67 @@
+services:
+
+  attacker:
+    build: ./ns_attacker
+    image: youiwa/ns07-attacker:1.0
+    container_name: ns-attacker
+    hostname: ns-attacker
+    tty: true
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    networks:
+      ns-net:
+        ipv4_address: 192.168.123.66
+
+  proxy:
+    image: youiwa/ns07-proxy:1.0
+    container_name: ns-proxy
+    hostname: ns-proxy
+    ports:
+      - "3128:3128"
+    privileged: true
+    networks:
+      ns-net:
+        ipv4_address: 192.168.123.123
+
+  reverse-proxy:
+    image: youiwa/ns07-reverse-proxy:1.0
+    container_name: ns-reverse-proxy
+    hostname: ns-reverse-proxy
+    ports:
+      - "8081:80"
+    networks:
+      ns-net:
+        ipv4_address: 192.168.123.5
+
+  socks-proxy:
+    image: youiwa/ns07-socks-proxy:1.0
+    container_name: ns-socks-proxy
+    hostname: ns-socks-proxy
+    ports:
+      - "1080:1080"
+    networks:
+      ns-net:
+        ipv4_address: 192.168.123.10
+
+  ns-server:
+    image: youiwa/ns07-server:1.0
+    container_name: ns-server
+    hostname: ns-server
+    ports:
+      - "8080:80"
+      - "2222:22"
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    networks:
+      ns-net:
+        ipv4_address: 192.168.123.101
+
+networks:
+  ns-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.123.0/24
+          gateway: 192.168.123.1
